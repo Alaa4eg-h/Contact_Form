@@ -1,0 +1,34 @@
+/* START FORM */
+.contact-form {
+  max-width: 450px;
+  margin: 10px auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 5px;
+}
+
+.contact-form input {
+  padding-left: 35px;
+}
+
+.contact-form textarea {
+  height: 180px !important;
+}
+
+.contact-form .form__icon {
+  float: left;
+  position: relative;
+  top: -32px;
+  left: 10px;
+  z-index: 999;
+  color: #ced4da;
+}
+
+.contact-form .form__icon[class*="plane"] {
+  display: block;
+  position: relative;
+  top: -32px;
+  float: none;
+}
