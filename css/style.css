@@ -1,4 +1,10 @@
 /* START FORM */
+
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+
 .contact-form {
   max-width: 450px;
   margin: 10px auto;
@@ -30,5 +36,6 @@
   display: block;
   position: relative;
   top: -32px;
+  left: 5px;
   float: none;
 }

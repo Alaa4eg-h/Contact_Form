@@ -1,3 +1,36 @@
+<?php
+// CHECK IF USER COMMING FROM REQUEST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // ASSIGN VARIABLES
+    $user = $_POST['username'];
+    $email = $_POST['email'];
+    $phone = $_POST['cellphone'];
+    $message = $_POST['message'];
+
+    // CREATING ARRAY OF ERRORS
+    $formErrors = array();
+
+    if (strlen($user) <= 3) {
+        $formErrors[] = 'Username Must Be Larger Than' . " " . '<strong>' . strlen($user) . '</strong>' . " Character";
+    }
+
+    if (strlen($message) < 10) {
+        $formErrors[] = 'Messgae Can\'t Be Less Than' . " " . '<strong>' . strlen($message) .  '</strong>' . " Character";
+    }
+}
+
+
+
+
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,14 +58,26 @@
 
     <div class="container">
         <h1 class="text-center">Contact Me</h1>
-        <form action="" class="contact-form">
+
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="contact-form">
+            <div class="alert alert-danger" role="strat">
+                <?php
+                if (isset($formErrors)) {
+                    foreach ($formErrors as $error) {
+                        echo $error . "<br>";
+                    }
+                }
+                ?>
+            </div>
             <input type="text" name="username" id="" placeholder="Type Your Username" class="form-control">
             <i class="fa fa-user fa-fw form__icon"></i>
+
             <input type="email" name="email" id="" placeholder="Type Your Valid E-mail" class="form-control">
             <i class="fa fa-envelope fa-fw form__icon"></i>
             <input type="text" name="cellphone" id="" placeholder="Type Your Mobile" class="form-control">
             <i class="fa fa-phone fa-fw form__icon"></i>
-            <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Your Message"></textarea>
+            <textarea name="message" id="" cols="30" rows="10" class="form-control" placeholder="Your Message"></textarea>
+
             <input type="submit" value="Send Message" class="btn btn-primary">
             <i class="fa fa-paper-plane fa-fw form__icon"></i>
         </form>
